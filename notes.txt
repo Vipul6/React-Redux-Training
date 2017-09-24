@@ -1,0 +1,122 @@
+https://notepad.pw/vipul-react
+
+1) On time loading
+2) 
+
+ES6
+--------------------------------
+let 
+
+rest operator ... function(...array){}
+spread oper ...
+ let array = [1,2,3];
+let newArray = [...array, 20,30,40];	ouput: [1,2,3,20,30,40];
+
+dConstructor
+let {a,bc,} = data;	prev:: let data = {a:10, b:20,c:30};
+
+b) let data = [1,2,10,20,30];
+
+let [a,b, ...c]
+
+c= [10,20,30]
+
+Template Literals:
+for not using + to use a lin
+
+Modules
+import {Product, add, PI} from  './anotherFile';
+import * as pm from './anotherFile';
+//pm as alias
+
+note:
+one default and mulitple exports in a file is allowed
+use default and import as:
+import ProductService, {Product} from './Product';
+here ProductService is deafult and Product is a names class 
+
+
+Class componet which has life cycle methods
+function componet simple as function
+
+conemu // command prompt for mutilple files open in single
+
+Redux:
+
+seed value in store(1,2) 2 ---initital data which paseed in the control
+
+//calls cartReducer (undefined, {type: '@@redux/INIT})
+let store = createStore(cartReducer);
+
+default data used in store:
+import {createStore} from "redux";
+
+import cartReducer from "./cart/Reducer";
+
+
+//calls cartReducer(undefiend, {type: '@@redux/INIT'})
+//let store = createStore(cartReducer);
+
+
+//with seed data
+let items = [{id: 10000, name: 'product 10000', price: 100, qty: 1}]
+//calls cartReducer([{id: 1, name: 'produ..'}], '@@redux/INIT')
+let store = createStore(cartReducer, items);
+
+export default store;
+
+will show like in console
+CartReducer =>  [{…}]0: {id: 10000, name: "product 10000", price: 100, qty: 1}length: 1__proto__: Array(0) {type: "@@redux/INIT"}
+-----------------------
+steps:
+import {createStore} from "redux";
+
+import cartReducer from "./cart/Reducer";
+
+
+//calls cartReducer(undefiend, {type: '@@redux/INIT'})
+//let store = createStore(cartReducer);
+
+
+//with seed data
+let items = [{id: 10000, name: 'product 10000', price: 100, qty: 1}]
+//calls cartReducer([{id: 1, name: 'produ..'}], '@@redux/INIT')
+let store = createStore(cartReducer, items);
+
+export default store;
+
+// Store initialization stage
+// store = createStore(...);
+// store calls 
+// newState = cartRducer(undefined, '@@redux/INIT')
+// ==> newState = []
+// set curent state = newState = []
+
+
+// dispatch stage
+// Step 1: store.dispatch (action{add item})
+//Store:
+// newState =  cartReducer([], action{add item});
+// state = newState [{id: 1}]
+// notify subscriber
+
+
+
+//Step 2: store.dispatch (action{empty item})
+//Store:
+// newState =  cartReducer([{id: 1}], action{emoty cart});
+// state = newState []
+// notify subscriber
+
+
+
+
+//Step 3: store.dispatch (action{NOT_IMPLEMENTED})
+//Store:
+// newState =  cartReducer([], action{NOT_IMPLEMENTED});
+// state = newState []
+// notify subscriber
+
+
+
+
